@@ -1,1 +1,1 @@
-# fivem-noclip1
+/noclip
