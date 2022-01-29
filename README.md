@@ -1,1 +1,1 @@
-/noclip
+Fivem invisible noclip.
