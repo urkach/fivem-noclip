@@ -1,5 +1,5 @@
 local noclip = false
-local noclip_speed = 3.0
+local noclip_speed = 1.5
 
 
 
@@ -66,30 +66,40 @@ RegisterCommand("noclip", function()
 			SetEntityVelocity(ped, 0.0001, 0.0001, 0.0001)
 
 
-		if IsControlPressed(0,32) then -- MOVE UP
+		if IsControlPressed(0,32) then -- MOVE adelante
 			x = x+speed*dx
 			y = y+speed*dy
 			z = z+speed*dz
 		end
 
-		if(IsControlPressed(1, 27))then
-			noclip_pos = GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 0.0, 2.0)
-		end
-		if IsControlPressed(0,21) then
-			noclip_speed = 0.75
-		else
-			noclip_speed = 3.0
-		end
-
-		if(IsControlPressed(1, 173))then
-			noclip_pos = GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 0.0, -2.0)
-		end
-
-		if IsControlPressed(0,269) then
+		if IsControlPressed(0,269) then -- MOVE atras
 			x = x-speed*dx
 			y = y-speed*dy
 			z = z-speed*dz
 		end
+
+		if IsControlPressed(0,34) then -- MOVE IZQ
+			x = x-1
+		end
+
+		if IsControlPressed(0,9) then -- MOVE DERCH
+			x = x+1
+		end
+
+		if IsControlPressed(0,203) then -- MOVE arriba
+			z = z+1
+		end
+
+		if IsControlPressed(0,210) then -- MOVE arriba
+			z = z-1
+		end
+
+		if IsControlPressed(0,21) then
+			noclip_speed = 3.0
+		else
+			noclip_speed = 1.5
+		end
+
 
 		SetEntityCoordsNoOffset(ped,x,y,z,true,true,true)
 		end
